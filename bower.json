@@ -1,0 +1,19 @@
+{
+  "name": "foundation-libsass-template",
+  "dependencies": {
+    "fancybox": "~2.1.5",
+    "foundation": "5.4.5",
+    "geocomplete": "~1.6.4",
+    "hammerjs": "2.0.*",
+    "hc-sticky": "*",
+    "jquery": "2.1.*",
+    "jquery.scrollTo": "1.4.*",
+    "mobile-detect": "hgoebl/mobile-detect.js#~0.4.2",
+    "modernizer": "~2.8.2",
+    "momentjs": "~2.8.4",
+    "on-media-query": "0.2.*",
+    "packery": "~1.2.4",
+    "slick.js": "1.3.11",
+    "underscore": "~1.7.0"
+  }
+}
