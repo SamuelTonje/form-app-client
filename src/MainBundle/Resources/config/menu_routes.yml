@@ -1,0 +1,9 @@
+parameters:
+    forms_client_main.menu_routing:
+        actualites:
+            menu_item: forms_client_content_news_summary
+            path: /actualites
+            submenu:
+                actualites:
+                    menu_item: forms_client_content_news_summary
+                    path: /actualites

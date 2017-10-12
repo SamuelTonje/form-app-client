@@ -12,15 +12,23 @@ web_profiler:
     intercept_redirects: false
 
 monolog:
+    channels: ["api"]
     handlers:
         main:
-            type: stream
-            path: '%kernel.logs_dir%/%kernel.environment%.log'
-            level: debug
-            channels: ['!event']
+            type:  rotating_file
+            max_files: 5
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+            channels: ["!api"]
+        api:
+            type:  rotating_file
+            max_files: 5
+            path:   "%kernel.logs_dir%/api.%kernel.environment%.log"
+            level:  debug
+            channels: [api]
         console:
-            type: console
-            channels: ['!event', '!doctrine']
+            type:   console
+            bubble: false
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:
@@ -32,3 +40,6 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
+
+#assetic:
+#    use_controller: "%use_assetic_controller%"

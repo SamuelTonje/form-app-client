@@ -1,4 +1,20 @@
+parameters:
+    forms_client_main.api.client.class: MainBundle\Api\Client
+
 services:
-#    main.example:
-#        class: MainBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    forms_client_main.api.client:
+        class: %forms_client_main.api.client.class%
+        arguments:
+            - "@forms_client_main.guzzle.client"
+            - "@doctrine_cache.providers.api_cache"
+            - %forms_client_main.api.url%
+            - %forms_client_main.api.username%
+            - %forms_client_main.api.password%
+            - %forms_client_main.api.max_auth_try%
+            - %forms_client_main.api.verify_ssl%
+
+    forms_client_main.guzzle.client:
+        class: %csa_guzzle.client.class%
+        factory: ["@csa_guzzle.client_factory", create]
+        tags:
+            -  { name: csa_guzzle.client }

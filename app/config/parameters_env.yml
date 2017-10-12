@@ -1,0 +1,17 @@
+# This file is auto-generated during the composer install
+parameters:
+    application_name: FORMS_WWW
+    application_env: local
+    mailer_transport: smtp
+    mailer_host: null
+    mailer_user: null
+    mailer_password: null
+    mailer_encryption: ssl
+    mailer_port: 465
+    mailer_auth_mode: login
+    mailer_sender: forms.client.dev@gmail.com
+    main.api.base_url: 'http://core.easi.local/'
+    main.api.url: '%main.api.base_url%api'
+    main.api.username: api
+    main.api.password: api
+    main.api.verify_ssl: true
