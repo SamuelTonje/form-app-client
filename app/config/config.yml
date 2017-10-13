@@ -35,6 +35,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        forms_api_url: '%forms_client.api.base_url%'
 
 # Assetic Configuration
 #assetic:

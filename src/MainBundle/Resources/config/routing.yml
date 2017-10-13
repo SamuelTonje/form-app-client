@@ -10,9 +10,9 @@ forms_client_main_contact_form:
     requirements:
         method: GET|POST
 
-forms_client_main_faq:
-    path:       /faq
-    defaults:   { _controller: MainBundle:Faq:index }
+forms_client_main_login:
+    path:       /login
+    defaults:   { _controller: MainBundle:Login:displayLoginForm }
     requirements:
         method: GET
 

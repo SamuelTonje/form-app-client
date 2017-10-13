@@ -287,36 +287,4 @@ class Client
         }
         return $response;
     }
-
-    /**
-     * @param $code
-     * @param $message
-     * @return string
-     */
-    static public function changeFatalErrorMessageFromCodeLevel($code, $message)
-    {
-        $messageFor_500 = 'Connexion impossible, veuillez réessayer dans quelques instants';
-        if (strripos($code, '50') === 0) {
-            return $messageFor_500;
-        }
-        return $message;
-    }
-
-    /**
-     * @param null $email
-     * @return bool
-     */
-    public function checkEmailValidity($email = null)
-    {
-        if (empty($email) || strpos($email, '@example.com') !== false) {
-            return false;
-        }
-
-        $validator = Validation::createValidator();
-        $violations = $validator->validate($email, [new Email(['strict' => true, 'checkHost' => true])]);
-        if (count($violations) !== 0) {
-            return false;
-        }
-        return true;
-    }
 }

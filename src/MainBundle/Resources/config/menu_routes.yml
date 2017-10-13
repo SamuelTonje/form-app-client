@@ -3,7 +3,9 @@ parameters:
         actualites:
             menu_item: forms_client_content_news_summary
             path: /actualites
-            submenu:
-                actualites:
-                    menu_item: forms_client_content_news_summary
-                    path: /actualites
+        contact:
+            menu_item: forms_client_contact
+            path: /contact
+        connexion:
+            menu_item: forms_client_login
+            path: /connexion

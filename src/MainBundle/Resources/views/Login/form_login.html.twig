@@ -1,0 +1,51 @@
+{% extends 'MainBundle::layout.html.twig' %}
+
+{% block content %}
+
+    <div class="Article">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6 bg-1">
+                <h1>Connexion à mon espace</h1>
+                <p>
+                    Connectez-vous à votre espace pour consulter les web-services auxquels vous avez accès.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <form method="post" novalidate>
+                    <div class="row">
+                        <div class="container-fluid large-12 medium-10 small-10 small-centered columns">
+                            <span class="login-icon"></span>
+                            <input type="text" id="login_username" class="login_username" name="login_username" placeholder="Votre Identifiant" autofocus required>
+                        </div>
+                        <div class="container-fluid large-12 medium-10 small-10 small-centered columns">
+                            <span class="password-icon"></span>
+                            <input type="password" id="login_password" class="login_password" name="login_password" placeholder="Mot de passe" required>
+                        </div>
+                        <div class="container-fluid large-12 medium-10 small-10 small-centered columns">
+                            <input class="button Button Button--light-saumon" id="login_submit" name="submit_connexion" type="submit" value="Se connecter">
+                        </div>
+
+                        <div class="clearfix">
+                            <div class="large-12 medium-10 small-10 large-centered medium-centered small-centered clearfix z-index-1 mt20 columns">
+                                {% if error is defined %}
+                                    <div id="error-message" data-alert class="alert-box alert radius">
+                                        {{ error }}
+                                        <a href="#" class="close">&times;</a>
+                                    </div>
+                                {% else %}
+                                    <div id="error-message" data-alert class="alert-box alert radius hidden">
+                                        <a href="#" class="close">&times;</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+        </div>
+{% endblock %}
