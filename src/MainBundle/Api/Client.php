@@ -287,4 +287,18 @@ class Client
         }
         return $response;
     }
+
+    /**
+     * @param $code
+     * @param $message
+     * @return string
+     */
+    static public function changeFatalErrorMessageFromCodeLevel($code, $message)
+    {
+        $messageFor_500 = 'Connexion impossible, veuillez réessayer dans quelques instants';
+        if (strripos($code, '50') === 0) {
+            return $messageFor_500;
+        }
+        return $message;
+    }
 }
