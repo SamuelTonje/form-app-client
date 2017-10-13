@@ -1,0 +1,17 @@
+{% extends 'MainBundle::layout.html.twig' %}
+
+{% block content %}
+    <section class="TopArticle">
+        <h1 class="Title Title--with-border Title--blue-border Title--big-size">
+            Erreur interne
+        </h1>
+        <p class="Resume">Cette page n'est actuellement pas disponible. Réessayez un peu plus tard</p>
+    </section>
+    <div class="Article">
+        <div class="row">
+            <div class="large-5 medium-5 small-12 large-centered medium-centered small-centered columns">
+                <a href="{{ path('main_homepage') }}"><span class="read-more read-more--saumon">Revenir à la page d'accueil</span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
