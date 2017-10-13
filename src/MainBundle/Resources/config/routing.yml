@@ -15,3 +15,8 @@ forms_client_main_faq:
     defaults:   { _controller: MainBundle:Faq:index }
     requirements:
         method: GET
+
+forms_client_main_getversion:
+    path:     /version
+    defaults: { _controller: MainBundle:Version:getVersion }
+    methods: GET|OPTIONS

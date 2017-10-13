@@ -62,12 +62,15 @@ swiftmailer:
 #    spool:     { type: memory }
 #    delivery_address: some-address@stonje.com
 
-#forms_main:
-#    api:
-#        url: %main.api.url%
-#        username: %main.api.username%
-#        password: %main.api.password%
-#        verify_ssl: %main.api.verify_ssl%
+main:
+    api:
+        url: %forms_client.api.url%
+        username: %forms_client.api.username%
+        password: %forms_client.api.password%
+        verify_ssl: %forms_client.api.verify_ssl%
 
 csa_guzzle:
     profiler: %kernel.debug%
+    cache:
+        service: doctrine_cache.providers.forms_client_api_cache
+        enable: %api_cache%

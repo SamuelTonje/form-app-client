@@ -1,20 +1,24 @@
 parameters:
-    forms_client_main.api.client.class: MainBundle\Api\Client
+    forms_client.api.client.class: MainBundle\Api\Client
+    forms_client.api.gateway.class: MainBundle\Api\Gateway
 
 services:
-    forms_client_main.api.client:
-        class: %forms_client_main.api.client.class%
+    forms_client.api.client:
+        class: %forms_client.api.client.class%
         arguments:
-            - "@forms_client_main.guzzle.client"
-            - "@doctrine_cache.providers.api_cache"
-            - %forms_client_main.api.url%
-            - %forms_client_main.api.username%
-            - %forms_client_main.api.password%
-            - %forms_client_main.api.max_auth_try%
-            - %forms_client_main.api.verify_ssl%
+            - "@forms_client.guzzle.client"
+            - %main.api.url%
+            - %main.api.username%
+            - %main.api.password%
+            - %main.api.max_auth_try%
+            - %main.api.verify_ssl%
 
-    forms_client_main.guzzle.client:
+    forms_client.guzzle.client:
         class: %csa_guzzle.client.class%
         factory: ["@csa_guzzle.client_factory", create]
         tags:
             -  { name: csa_guzzle.client }
+
+    ffb_easi_core.api.gateway:
+        class: %forms_client.api.gateway.class%
+        arguments: ["@forms_client.api.client"]

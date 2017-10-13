@@ -11,8 +11,8 @@ parameters:
     mailer_auth_mode: login
     mailer_sender: forms.client.dev@gmail.com
 
-    main.api.base_url: 'http://core.easi.local/'
-    main.api.url: '%main.api.base_url%api'
-    main.api.username: api
-    main.api.password: api
-    main.api.verify_ssl: true
+    forms_client.api.base_url: 'http://api.forms.local/'
+    forms_client.api.url: '%main.api.base_url%api'
+    forms_client.api.username: api
+    forms_client.api.password: api
+    forms_client.api.verify_ssl: true
