@@ -1,0 +1,17 @@
+{% extends 'MainBundle::layout.html.twig' %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/home.min.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/slick.js/slick/slick.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/jquery.scrollTo/jquery.scrollTo.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/hammerjs/hammer.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/foundation/js/foundation/foundation.joyride.js') }}"></script>
+
+{% endblock %}
+{% block content %}
+    <!-- First Container -->
+    <div class="container-fluid bg-1 text-center">
+        <h3 class="margin">{{ data.titre }}</h3>
+        <p>{{ data.content }}</p>
+    </div>
+{% endblock %}

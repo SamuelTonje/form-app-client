@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     var conf = {
         webDir      : 'web/assets/',
-        scssDir     : 'scss/',
+        lessDir     : 'less/',
         cssDir      : 'css/',
         jsDir       : 'js/',
         jsTmpDir    : 'js/tmp',
@@ -20,10 +20,10 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             css: {
-                files: ['**/*.scss'],
+                files: ['**/*.less'],
                 tasks: ['cssroutine'],
                 options: {
-                    cwd: conf.webDir + conf.scssDir,
+                    cwd: conf.webDir + conf.lessDir,
                     livereload: true
                 }
 
@@ -44,15 +44,16 @@ module.exports = function(grunt) {
                 }
             }
         },
-        sass: {
+        less: {
             options: {
                 sourceMap: true,
-                includePaths: ['web/assets/bower_components/foundation/scss'],
+                includePaths: ['web/assets/bower_components/foundation/less'],
                 outputStyle: 'compact'
             },
             dist: {
                 files: {
-                    'web/assets/css/app.css': 'web/assets/scss/app.scss'
+                    'web/assets/css/app.css': 'web/assets/less/app.less',
+                    "web/assets/css/bootstrap.css": "web/assets/bower_components/bootstrap/less/bootstrap.less"
                 }
             }
         },
@@ -112,7 +113,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -122,7 +123,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-babel');
 
     // Watch
-    grunt.registerTask('cssroutine', ['sass', 'newer:autoprefixer']);
+    grunt.registerTask('cssroutine', ['less', 'newer:autoprefixer']);
     grunt.registerTask('jsroutine', ['babel', 'uglify', 'clean']);
     grunt.registerTask('copy_fonts', ['copy']);
 

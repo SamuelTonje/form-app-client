@@ -1,0 +1,10 @@
+---
+'parameters':
+  'git':
+    'abbrev_commit': 'ee42b7b'
+    'commit_date': '2017-10-12T10:49:15+0000'
+    'commit_timestamp': '1499683755'
+    'deploy_date': '2017-10-15T13:31:02+0000'
+    'deploy_timestamp': '1505741462'
+    'full_commit': 'ee42b7bdc98a9681fa9f1aacb558641b0ad84a3c'
+    'version': 'v1.4.10-162-gee42b7b'

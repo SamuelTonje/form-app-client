@@ -1,0 +1,18 @@
+parameters:
+    application_name: FORMS_WWW
+    application_env: local
+
+    mailer_transport: smtp
+    mailer_host: null
+    mailer_user: null
+    mailer_password: null
+    mailer_encryption: ssl
+    mailer_port: 465
+    mailer_auth_mode: login
+    mailer_sender: forms.client.dev@gmail.com
+
+    forms_client.api.base_url: 'http://api.forms.local/'
+    forms_client.api.url: '%main.api.base_url%api'
+    forms_client.api.username: api
+    forms_client.api.password: api
+    forms_client.api.verify_ssl: true

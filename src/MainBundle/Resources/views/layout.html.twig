@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="fr">
+    <head>
+    <meta charset="utf-8">
+    {% block meta_x_ux_compatible %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% endblock %}
+
+    <title>Titre de la page</title>
+    <meta name="description" content="Forms Client">
+
+    <meta property=og:site_name content="Forms Client"/>
+    <meta property="og:type" content="website" />
+    <meta property=og:locale content=fr_FR>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" />
+
+    <script src="{{ asset('assets/bower_components/modernizer/modernizr.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/on-media-query/js/onmediaquery.js') }}"></script>
+    <script src="{{ asset('assets/bower_components/mobile-detect/mobile-detect.min.js') }}"></script>
+    <!-- End Facebook Pixel Code -->
+
+    </head>
+
+    <body>
+        <!--[if lte IE 8]>
+        <div class="browser-banner" style="position: fixed; z-index: 999; width: 100%; height: 100%; background-color: white; text-align: center;">
+            <div>
+                <h1 style="font-size: 22px; width: 300px; line-height: 30px; margin: 120px auto 20px auto;">Votre navigateur est obsolète.</h1>
+                <p style="font-size: 16px; width: 500px; margin: 20px auto;">Nous vous avons redirigé(e) sur cette page car le navigateur installé sur votre ordinateur est devenu obsolète et ne permet pas de visualiser ce site correctement.</p>
+                <a href='http://browsehappy.com/?locale=fr'>Mettre à jour le navigateur</a>
+            </div>
+        </div>
+        <![endif]-->
+        {{ render(controller('MainBundle:GlobalContent:index', { 'zone': 'header', 'currentRoute': app.request.attributes.get('_route') })) }}
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+        {{ render(controller('MainBundle:GlobalContent:index', { 'zone': 'footer', 'currentRoute': app.request.attributes.get('_route')})) }}
+
+        {% block javascripts %}
+        {% endblock %}
+
+        <noscript>
+            <div id="noscript-warning">
+                <p>Afin d'utiliser cdmerci d'activer Javascript sur votre navigateur.</p>
+                <p>
+                    <a href="http://www.enable-javascript.com/fr/" target="_blank">
+                        Accéder aux instructions pour activer JavaScript dans votre navigateur Web.
+                    </a>
+                </p>
+            </div>
+        </noscript>
+    </body>
+</html>

@@ -22,5 +22,8 @@
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower --config.interactive=false  --allow-root install && ./node_modules/.bin/grunt"
+  },
+  "devDependencies": {
+    "grunt-contrib-less": "^1.4.1"
   }
 }

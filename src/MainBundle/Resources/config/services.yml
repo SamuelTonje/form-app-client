@@ -1,4 +1,24 @@
+parameters:
+    forms_client.api.client.class: MainBundle\Api\Client
+    forms_client.api.gateway.class: MainBundle\Api\Gateway
+
 services:
-#    main.example:
-#        class: MainBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    forms_client.api.client:
+        class: %forms_client.api.client.class%
+        arguments:
+            - "@forms_client.guzzle.client"
+            - %main.api.url%
+            - %main.api.username%
+            - %main.api.password%
+            - %main.api.max_auth_try%
+            - %main.api.verify_ssl%
+
+    forms_client.guzzle.client:
+        class: %csa_guzzle.client.class%
+        factory: ["@csa_guzzle.client_factory", create]
+        tags:
+            -  { name: csa_guzzle.client }
+
+    ffb_easi_core.api.gateway:
+        class: %forms_client.api.gateway.class%
+        arguments: ["@forms_client.api.client"]

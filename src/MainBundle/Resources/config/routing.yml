@@ -1,3 +1,22 @@
-main_homepage:
+# -- Homepage
+
+forms_client_main_homepage:
     path:     /
-    defaults: { _controller: MainBundle:Default:index }
+    defaults: { _controller: MainBundle:Home:index }
+
+forms_client_main_contact_form:
+    path:     /contact/form
+    defaults: { _controller: MainBundle:Contact:form }
+    requirements:
+        method: GET|POST
+
+forms_client_main_login:
+    path:       /login
+    defaults:   { _controller: MainBundle:Login:displayLoginForm }
+    requirements:
+        method: GET
+
+forms_client_main_getversion:
+    path:     /version
+    defaults: { _controller: MainBundle:Version:getVersion }
+    methods: GET|OPTIONS
