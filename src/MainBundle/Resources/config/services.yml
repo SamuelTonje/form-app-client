@@ -19,6 +19,6 @@ services:
         tags:
             -  { name: csa_guzzle.client }
 
-    ffb_easi_core.api.gateway:
+    forms_client.api.gateway:
         class: %forms_client.api.gateway.class%
         arguments: ["@forms_client.api.client"]

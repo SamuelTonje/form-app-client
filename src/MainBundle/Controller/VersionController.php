@@ -16,7 +16,7 @@ class VersionController extends Controller
         $data = $container->hasParameter('git') ? $container->getParameter('git') : [];
         $data['name'] = $container->hasParameter('application_name') ? $container->getParameter('application_name') : null;
         $data['env'] = $container->hasParameter('application_env') ? $container->getParameter('application_env') : null;
-        $data['api'] = $this->get('ffb_easi_core.api.gateway')->getVersion();
+        $data['api'] = $this->get('forms_client.api.gateway')->getVersion();
 
         $response = new JsonResponse($data, 200, [
             'Access-Control-Allow-Origin' => '*',

@@ -32,4 +32,15 @@ class Gateway
 
         return $response['body'];
     }
+
+    /**
+     * @param $username
+     * @param $password
+     * @return null|string
+     */
+    public function getToken($username, $password)
+    {
+        return $this->client->auth($username, $password, 1);
+    }
+
 }
