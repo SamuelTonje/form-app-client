@@ -26,6 +26,7 @@
         "php": ">=5.3.9",
         "csa/guzzle-bundle": "dev-easi-sf3",
         "doctrine/doctrine-bundle": "~1.4",
+        "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.4.8",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "^2.2",

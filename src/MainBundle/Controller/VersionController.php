@@ -4,7 +4,6 @@ namespace MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Ffb\Easi\Bundle\CmsProxyBundle\Api\Client;
 
 class VersionController extends Controller
 {
@@ -24,5 +23,15 @@ class VersionController extends Controller
         $response->setTtl(3600);
 
         return $response;
+    }
+
+    public function testAuth()
+    {
+        $gateway = $this->get('forms_client.api.gateway');
+
+        $applicationToken = $gateway->getToken(
+            $this->getParameter('main.api.username'),
+            $this->getParameter('main.api.password')
+        );
     }
 }

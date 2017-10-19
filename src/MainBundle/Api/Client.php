@@ -180,13 +180,7 @@ class Client
     protected function getJwt()
     {
         if (empty($this->jwt)) {
-            //$this->jwt = $this->cache->fetch('api.jwt');
-            if (empty($this->jwt)) {
-                $this->jwt = $this->auth($this->username, $this->password, $this->maxAuthTry, 1);
-                if (!empty($this->jwt)) {
-              //      $this->cache->save('api.jwt', $this->jwt, 600);
-                }
-            }
+            $this->jwt = $this->auth($this->username, $this->password, $this->maxAuthTry, 1);
         }
 
         return $this->jwt;

@@ -1,5 +1,5 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "libs-template",
   "dependencies": {
     "fancybox": "~2.1.5",
     "foundation": "5.4.5",
