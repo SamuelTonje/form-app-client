@@ -1,24 +1,67 @@
+<header class="header header-4" style="border-bottom-color: red;">
+    <h1 class="title__seo visuallyhidden">
+        Accueil</h1>
+    <div class="wrapper">
+        <div class="row">
+            <div class="block__inline block--logo__website">
+                <a href="http://hopital-saintlouis.aphp.fr/" class="logo__website">
+                    <img role="banner" src="{{ asset('assets/images/Logo-HU-St-Louis-RVB.png') }}"
+                         alt="Un site utilisant Réseau HU Paris 10">
+                </a>
+                <h2 class="logo__website__baseline" style=color:#f15231>HÔPITAL SAINT-LOUIS</h2>
+            </div>
+            <div class="block__inline block--logo__aphp">
+                <h2 style="text-align: center; color:#323c4a">Données nécessaires aux indicateurs de qualité <br/>dans le soin du cancer du sein</h2>
+            </div>
+            <div class="searchform">
+                <form class="searchform-container" role="search" method="get"
+                      action="http://hopital-saintlouis.aphp.fr/ ">
+                    <label class="search-block-label" for="search-block-text">
 
-<header itemscope itemtype="http://schema.org/WPHeader">
-  <!-- Navbar -->
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Forms API Client</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Actualités</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="{{ path('forms_client_main_login') }}">Connexion à l'API</a></li>
-        </ul>
-      </div>
+                        <input type="search" id="search-block-text" class="field s" name="s"
+                               placeholder="Saisissez un mot ou une expression" aria-required="true"
+                               required="required">
+                        <button style=background-color:#0584ff class="submit"><span aria-hidden="true"
+                                                                                    class="icon-search"></span></button>
+                    </label>
+
+                </form>
+            </div>
+        </div>
     </div>
-  </nav>
-
+    <div class="container-fluid">
+        <div class="wrapper">
+        <div class="row" style="margin-bottom: -2px; border-bottom-color:#f15231;">
+            <div class="col-md-12">
+                <ul class="nav navbar-nav navbar-top-links navbar-collapse navbar-right">
+                    <!-- Extractions-->
+                    <li>
+                        <a href="./?p=indicateur-qualite" >
+                            <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+                            Extraction
+                        </a>
+                    </li>
+                    <!-- <li class="<?= selected($b_page, 'creation-formulaire') ? 'active' : ''; ?>">
+                         <a href="./?p=creation-formulaire" >
+                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                             Créer un formulaire
+                         </a>
+                     </li>-->
+                    <li>
+                        <a href="./?p=migration" >
+                            <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+                            Migration des schémas
+                        </a>
+                    </li>
+                    <!-- DECONNEXION -->
+                    <li class="logout">
+                        <a href="{{ path('forms_client_main_login') }}">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
 </header>

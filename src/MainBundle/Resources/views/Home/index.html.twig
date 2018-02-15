@@ -10,8 +10,437 @@
 {% endblock %}
 {% block content %}
     <!-- First Container -->
-    <div class="container-fluid bg-1 text-center">
-        <h3 class="margin">{{ data.titre }}</h3>
-        <p>{{ data.content }}</p>
+    <div class="wrapper">
+        <div class="row" style="margin-top: 20px; margin-left:-34px;">
+            <div class="col-md-12">
+                <div class="row"> <!-- Submit Button -->
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="button" class="btn btn-default frequence">Afficher les fréquences</button>
+                        <button type="button" class="btn btn-default correspondance">Afficher les patients
+                            correspondants aux critères
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">&nbsp;</div>
+            <div class="col-md-12">
+                <fieldset class="group-border">
+                    <legend class="group-border">Extraire les données par fréquences</legend>
+                        <div class="col-lg-1">
+                            <label class="control-label" for="search_begin">Entre le</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control input-sm" name="search_begin" id="search_begin" value="15-02-2017" type="text">
+                        </div>
+                        <div class="col-lg-1">
+                            <label class="control-label" for="Name">Et le</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control input-sm" id="search_end" name="search_end" value="15-02-2018" type="text">
+                        </div>
+                        <div style="float: left;" class="col-lg-4 text-left">
+                            <input style="float: left;" checked='checked' class="input-sm" id="IsArchived" name="IsArchived" value="true" type="checkbox">
+                            <label style="margin-top: 10px; margin-left: 9px;" class="control-label" for="IsArchived"> Uniquement les données 2017</label>
+                        </div>
+                </fieldset>
+                <fieldset class="group-border">
+                    <legend class="group-border">Patient</legend>
+                    <div class="col-md-12"><label>Date de naissance</label><input class="form-control input-sm"
+                                                                                  data-dsp="MIDDLECARE"
+                                                                                  data-chapter="INCLUSION" type="text"
+                                                                                  name="DATNAI" id="DATNAI"></div>
+                    <div class="col-md-12"><label>Sexe</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="MIDDLECARE"
+                                              data-chapter="INCLUSION" data-value="féminin" data-name="SEXE">féminin</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="MIDDLECARE" data-chapter="INCLUSION"
+                                data-value="masculin" data-name="SEXE">masculin</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="MIDDLECARE" data-chapter="INCLUSION"
+                                data-value="?" data-name="SEXE">?</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Statut menopausique</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE48"
+                                              data-value="ménopausée" data-name="VAR1290">ménopausée</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE48"
+                                data-value="non ménopausée" data-name="VAR1290">non ménopausée</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE48"
+                                data-value="périménopause" data-name="VAR1290">périménopause</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Delai de consultation</label><input class="form-control input-sm"
+                                                                                      data-dsp="DSP2"
+                                                                                      data-chapter="CHAPITRE48"
+                                                                                      type="text" name="VAR2124"
+                                                                                      id="VAR2124"></div>
+                </fieldset>
+                <hr/>
+                <fieldset class="group-border">
+                    <legend class="group-border">Diagnostic préopératoire</legend>
+                    <div class="col-md-12"><label>Mammographie</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                              data-value="normale" data-name="VAR1358">normale</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="opacité ronde bien limitée" data-name="VAR1358">opacité ronde bien
+                            limitée</a>&nbsp;&nbsp;<a class="OptionNotSelected cm" data-dsp="DSP2"
+                                                      data-chapter="CHAPITRE50" data-value="opacité ronde mal limitée"
+                                                      data-name="VAR1358">opacité ronde mal limitée</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="opacité spiculée" data-name="VAR1358">opacité spiculée</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="surdensité" data-name="VAR1358">surdensité</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="microcalcifications" data-name="VAR1358">microcalcifications</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="distorsion" data-name="VAR1358">distorsion</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="autre" data-name="VAR1358">autre</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Classification ACR IRM</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                              data-value="0" data-name="VAR2128">0</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="1"
+                                data-name="VAR2128">1</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE50" data-value="2"
+                                                                        data-name="VAR2128">2</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="3"
+                                data-name="VAR2128">3</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE50" data-value="4a"
+                                                                        data-name="VAR2128">4a</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="4b"
+                                data-name="VAR2128">4b</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                         data-chapter="CHAPITRE50" data-value="4c"
+                                                                         data-name="VAR2128">4c</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="5"
+                                data-name="VAR2128">5</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE50" data-value="6"
+                                                                        data-name="VAR2128">6</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Echographie</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                              data-value="normale" data-name="VAR1525">normale</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="kyste" data-name="VAR1525">kyste</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="masse d'allure bénigne" data-name="VAR1525">masse d'allure bénigne</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="masse d'allure suspecte" data-name="VAR1525">masse d'allure suspecte</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                data-value="masse évocatrice de cancer" data-name="VAR1525">masse évocatrice de
+                            cancer</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Classification ACR</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50"
+                                              data-value="0" data-name="VAR1426">0</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="1"
+                                data-name="VAR1426">1</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE50" data-value="2"
+                                                                        data-name="VAR1426">2</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="3"
+                                data-name="VAR1426">3</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE50" data-value="4a"
+                                                                        data-name="VAR1426">4a</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="4b"
+                                data-name="VAR1426">4b</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                         data-chapter="CHAPITRE50" data-value="4c"
+                                                                         data-name="VAR1426">4c</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE50" data-value="5"
+                                data-name="VAR1426">5</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE50" data-value="6"
+                                                                        data-name="VAR1426">6</a>&nbsp;&nbsp;
+                    </div>
+                </fieldset>
+                <hr/>
+                <fieldset class="group-border">
+                    <legend class="group-border">Récepteur</legend>
+                    <div class="col-md-12"><label>Cerb B2</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="1+" data-name="VAR1505">1+</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="2+"
+                                data-name="VAR1505">2+</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                         data-chapter="CHAPITRE52" data-value="3+"
+                                                                         data-name="VAR1505">3+</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="0"
+                                data-name="VAR1505">0</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52"
+                                                                        data-value="Fish/Sish amplifié"
+                                                                        data-name="VAR1505">Fish/Sish amplifié</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Fish/Sish non amplifié" data-name="VAR1505">Fish/Sish non amplifié</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="En cours" data-name="VAR1505">En cours</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Non fait" data-name="VAR1505">Non fait</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>P53</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="muté" data-name="VAR1940">muté</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="sauvage" data-name="VAR1940">sauvage</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="non fait" data-name="VAR1940">non fait</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>T</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="0" data-name="VAR1992">0</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="1"
+                                data-name="VAR1992">1</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52" data-value="1a"
+                                                                        data-name="VAR1992">1a</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="1b"
+                                data-name="VAR1992">1b</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                         data-chapter="CHAPITRE52" data-value="1c"
+                                                                         data-name="VAR1992">1c</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="2"
+                                data-name="VAR1992">2</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52" data-value="3"
+                                                                        data-name="VAR1992">3</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="4"
+                                data-name="VAR1992">4</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52" data-value="4a"
+                                                                        data-name="VAR1992">4a</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="4b"
+                                data-name="VAR1992">4b</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                         data-chapter="CHAPITRE52" data-value="4c"
+                                                                         data-name="VAR1992">4c</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="4d"
+                                data-name="VAR1992">4d</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>N</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="0" data-name="VAR1990">0</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="1"
+                                data-name="VAR1990">1</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52" data-value="2"
+                                                                        data-name="VAR1990">2</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="3"
+                                data-name="VAR1990">3</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>M</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="0" data-name="VAR1989">0</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="1"
+                                data-name="VAR1989">1</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Grade</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE59"
+                                              data-value="1" data-name="VAR1817">1</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE59" data-value="2"
+                                data-name="VAR1817">2</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE59" data-value="3"
+                                                                        data-name="VAR1817">3</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE59"
+                                data-value="Grade bas" data-name="VAR1817">Grade bas</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE59"
+                                data-value="Grade intermédiaire" data-name="VAR1817">Grade intermédiaire</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE59"
+                                data-value="Grade haut" data-name="VAR1817">Grade haut</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE59"
+                                data-value="Non connu" data-name="VAR1817">Non connu</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Conseil génétique</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE48"
+                                              data-value="OUI" data-name="VAR2140">OUI</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE48" data-value="NON"
+                                data-name="VAR2140">NON</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>RCP multidisciplinaire</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE58"
+                                              data-value="Oui" data-name="VAR424">Oui</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE58" data-value="Non"
+                                data-name="VAR424">Non</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Date de la RCP (RCP d'oncosénologie)</label><input
+                                class="form-control input-sm" data-dsp="DSP2"
+                                data-chapter="INDICATEUR_QUALITE_DSP4_CHAPITRE66" type="text" name="VAR1194"
+                                id="VAR1194"></div>
+                    <div class="col-md-12"><label>Date de la RCP (Compte rendu RCP senologie)</label><input
+                                class="form-control input-sm" data-dsp="DSP2"
+                                data-chapter="INDICATEUR_QUALITE_DSP4_SENO" type="text" name="VAR189" id="VAR189"></div>
+                    <div class="col-md-12"><label>Date de la RCP (Compte rendu RCP Lésions infracliniques)</label><input
+                                class="form-control input-sm" data-dsp="DSP2"
+                                data-chapter="INDICATEUR_QUALITE_DSP4_SENO_CHAPITRE16" type="text" name="VAR327"
+                                id="VAR327"></div>
+                    <div class="col-md-12"><label>Ki67 (%)</label><input class="form-control input-sm" data-dsp="DSP2"
+                                                                         data-chapter="CHAPITRE52" type="text"
+                                                                         name="VAR1941" id="VAR1941"></div>
+                    <div class="col-md-12"><label>Recepteurs RE/RP</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="+/+" data-name="VAR1509">+/+</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="-/-"
+                                data-name="VAR1509">-/-</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                          data-chapter="CHAPITRE52" data-value="+/-"
+                                                                          data-name="VAR1509">+/-</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="-/+"
+                                data-name="VAR1509">-/+</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                          data-chapter="CHAPITRE52"
+                                                                          data-value="Non fait" data-name="VAR1509">Non
+                            fait</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                   data-chapter="CHAPITRE52" data-value="Non applicable"
+                                                   data-name="VAR1509">Non applicable</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="En cours" data-name="VAR1509">En cours</a>&nbsp;&nbsp;
+                    </div>
+                </fieldset>
+                <hr/>
+                <fieldset class="group-border">
+                    <legend class="group-border">Chirurgie résection</legend>
+                    <div class="col-md-12"><label>Date du geste chirurgical</label><input class="form-control input-sm"
+                                                                                          data-dsp="DSP2"
+                                                                                          data-chapter="CHAPITRE52"
+                                                                                          type="text" name="VAR1497"
+                                                                                          id="VAR1497"></div>
+                    <div class="col-md-12"><label>Type de chirurgie</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="Conservatrice" data-name="VAR1496">Conservatrice</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Mastectomie" data-name="VAR1496">Mastectomie</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Curage" data-name="VAR1496">Curage</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cm" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Autre" data-name="VAR1496">Autre</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Histologie</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="CCI" data-name="VAR1508">CCI</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="CLI"
+                                data-name="VAR1508">CLI</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                          data-chapter="CHAPITRE52" data-value="CIC"
+                                                                          data-name="VAR1508">CIC</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="CLIS"
+                                data-name="VAR1508">CLIS</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                           data-chapter="CHAPITRE52" data-value="CCIS"
+                                                                           data-name="VAR1508">CCIS</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome canalaire micro invasif" data-name="VAR1508">Carcinome canalaire
+                            micro invasif</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                            data-chapter="CHAPITRE52"
+                                                            data-value="Infiltrant avec intraca. prédominant"
+                                                            data-name="VAR1508">Infiltrant avec intraca. prédominant</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome tubuleux" data-name="VAR1508">Carcinome tubuleux</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome colloïde" data-name="VAR1508">Carcinome colloïde</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome médullaire" data-name="VAR1508">Carcinome médullaire</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome papillaire infiltrant" data-name="VAR1508">Carcinome papillaire
+                            infiltrant</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                         data-chapter="CHAPITRE52"
+                                                         data-value="Maladie de Paget du mamelon" data-name="VAR1508">Maladie
+                            de Paget du mamelon</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                  data-chapter="CHAPITRE52"
+                                                                  data-value="Sarcome phyllode" data-name="VAR1508">Sarcome
+                            phyllode</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                       data-chapter="CHAPITRE52" data-value="Sarcome stromal"
+                                                       data-name="VAR1508">Sarcome stromal</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcino sarcome" data-name="VAR1508">Carcino sarcome</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Angio sarcome" data-name="VAR1508">Angio sarcome</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Lymphome" data-name="VAR1508">Lymphome</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome épidermoïde" data-name="VAR1508">Carcinome épidermoïde</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome sécrétant juvénil" data-name="VAR1508">Carcinome sécrétant
+                            juvénil</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                      data-chapter="CHAPITRE52" data-value="Carcinome intra kystique"
+                                                      data-name="VAR1508">Carcinome intra kystique</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carcinome mixte canalaire/lobul." data-name="VAR1508">Carcinome mixte
+                            canalaire/lobul.</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                               data-chapter="CHAPITRE52"
+                                                               data-value="Carcinome papillaire intrakystique"
+                                                               data-name="VAR1508">Carcinome papillaire
+                            intrakystique</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                            data-chapter="CHAPITRE52" data-value="Tumeur phyllode"
+                                                            data-name="VAR1508">Tumeur phyllode</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="Carc. stroma chondroide/ostéoide" data-name="VAR1508">Carc. stroma
+                            chondroide/ostéoide</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Ganglion sentinelle</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="Oui" data-name="VAR1498">Oui</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="Non"
+                                data-name="VAR1498">Non</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Resultat ganglion sentinel ( GS/ )</label><input
+                                class="form-control input-sm" data-dsp="DSP2" data-chapter="CHAPITRE52" type="text"
+                                name="VAR1501" id="VAR1501"></div>
+                    <div class="col-md-12"><label>pT</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="0" data-name="VAR1504">0</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="1"
+                                data-name="VAR1504">1</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52" data-value="2"
+                                                                        data-name="VAR1504">2</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="3"
+                                data-name="VAR1504">3</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52" data-value="4"
+                                                                        data-name="VAR1504">4</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="x"
+                                data-name="VAR1504">x</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                        data-chapter="CHAPITRE52"
+                                                                        data-value="plurifocal" data-name="VAR1504">plurifocal</a>&nbsp;&nbsp;
+                    </div>
+                </fieldset>
+                <hr/>
+                <fieldset class="group-border">
+                    <legend class="group-border">Radiothérapie</legend>
+                    <div class="col-md-12"><label>Radiotherapie</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2"
+                                              data-chapter="INDICATEUR_QUALITE" data-value="Oui"
+                                              data-name="VAR1711">Oui</a>&nbsp;&nbsp;<a class="OptionNotSelected cs"
+                                                                                        data-dsp="DSP2"
+                                                                                        data-chapter="INDICATEUR_QUALITE"
+                                                                                        data-value="Non"
+                                                                                        data-name="VAR1711">Non</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Hormonotherapie adjuvante</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="ANASTROZOLE" data-name="VAR1516">ANASTROZOLE</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="LETROZOLE" data-name="VAR1516">LETROZOLE</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="EXEMESTANE" data-name="VAR1516">EXEMESTANE</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="ANALOGUE LH-RH" data-name="VAR1516">ANALOGUE LH-RH</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="PROGESTATIF" data-name="VAR1516">PROGESTATIF</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="FULVESTRANT" data-name="VAR1516">FULVESTRANT</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="TAMOXIFENE" data-name="VAR1516">TAMOXIFENE</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                data-value="ANALOGUE LH-RH+ TAMOXIFENE" data-name="VAR1516">ANALOGUE LH-RH+
+                            TAMOXIFENE</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                         data-chapter="CHAPITRE52" data-value="AUTRE"
+                                                         data-name="VAR1516">AUTRE</a>&nbsp;&nbsp;
+                    </div>
+                    <div class="col-md-12"><label>Chimiotherapie neo adjuvante</label></div>
+                    <div class="col-md-12"><a class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52"
+                                              data-value="ECT" data-name="VAR1515">ECT</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="SIM"
+                                data-name="VAR1515">SIM</a>&nbsp;&nbsp;<a class="OptionNotSelected cs" data-dsp="DSP2"
+                                                                          data-chapter="CHAPITRE52" data-value="EC"
+                                                                          data-name="VAR1515">EC</a>&nbsp;&nbsp;<a
+                                class="OptionNotSelected cs" data-dsp="DSP2" data-chapter="CHAPITRE52" data-value="ECTH"
+                                data-name="VAR1515">ECTH</a>&nbsp;&nbsp;
+                    </div>
+                </fieldset>
+                <hr/>
+            </div>
+
+            <div class="col-md-12">
+                <div class="row"> <!-- Submit Button -->
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="button" class="btn btn-default frequence">Afficher les fréquences</button>
+                        <button type="button" class="btn btn-default correspondance">Afficher les patients
+                            correspondants aux critères
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">&nbsp;</div>
+        </div>
     </div>
 {% endblock %}

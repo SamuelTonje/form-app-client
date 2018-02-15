@@ -53,6 +53,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'web/assets/css/app.css': 'web/assets/less/app.less',
+                    'web/assets/css/bootstrap-theme.css': 'web/assets/less/bootstrap-theme.less',
                     "web/assets/css/bootstrap.css": "web/assets/bower_components/bootstrap/less/bootstrap.less"
                 }
             }

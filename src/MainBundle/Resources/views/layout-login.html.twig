@@ -34,13 +34,12 @@
             </div>
         </div>
         <![endif]-->
-        {{ render(controller('MainBundle:GlobalContent:index', { 'zone': 'header', 'currentRoute': app.request.attributes.get('_route') })) }}
 
         <div id="content">
             {% block content %}{% endblock %}
         </div>
 
-        {{ render(controller('MainBundle:GlobalContent:index', { 'zone': 'footer', 'currentRoute': app.request.attributes.get('_route')})) }}
+        {{ render(controller('MainBundle:GlobalContent:index', { 'zone': 'footer-login', 'currentRoute': app.request.attributes.get('_route')})) }}
 
         {% block javascripts %}
         {% endblock %}
