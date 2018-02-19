@@ -1,0 +1,31 @@
+CoreBundle\Entity\PatientConsultation:
+    type: entity
+    table: patient__consultation
+    repositoryClass: CoreBundle\Repository\PatientConsultationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nip:
+            type: integer
+        nipro:
+            type: integer
+        commentaire:
+            type: text
+            nullable: true
+        iteration:
+            type: integer
+            nullable: true
+        dateModification:
+            type: datetime
+            column: date_modification
+        var:
+            type: string
+            length: '50'
+        val:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

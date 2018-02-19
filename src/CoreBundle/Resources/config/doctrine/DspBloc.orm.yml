@@ -1,0 +1,83 @@
+CoreBundle\Entity\DspBloc:
+    type: entity
+    table: dsp__bloc
+    repositoryClass: CoreBundle\Repository\DspBlocRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        numero:
+            type: integer
+        nom:
+            type: string
+            length: '100'
+        ssBloc:
+            type: boolean
+            column: ss_bloc
+        numeroLigne:
+            type: integer
+            column: numero_ligne
+        cgObjet:
+            type: integer
+            column: cg_objet
+        type:
+            type: string
+            length: '5'
+        longueur:
+            type: integer
+        typeAcces:
+            type: string
+            length: '1'
+            column: type_acces
+        crTxt:
+            type: string
+            length: 255
+            column: cr_txt
+        infobulle:
+            type: string
+            length: 255
+        crBloc:
+            type: string
+            length: 255
+            column: cr_bloc
+        urlImage:
+            type: string
+            length: 255
+            column: url_image
+        labelSecondaire:
+            type: string
+            length: 255
+            column: label_secondaire
+    manyToOne:
+        dspPage:
+            targetEntity: DspPage
+            inversedBy: dspBlocs
+            cascade: ["persist"]
+            joinColumn:
+                name: dsp_page_id
+                referencedColumnName: id
+        variableNom:
+            targetEntity: VariableNom
+            inversedBy: dspBlocs
+            cascade: ["persist"]
+            joinColumn:
+                name: variable_nom_id
+                referencedColumnName: id
+        variableType:
+            targetEntity: VariableType
+            inversedBy: dspBlocs
+            cascade: ["persist"]
+            joinColumn:
+                name: variable_type_id
+                referencedColumnName: id
+        variableListeChoix:
+            targetEntity: VariableListeChoix
+            inversedBy: dspBlocs
+            cascade: ["persist"]
+            joinColumn:
+                name: variable_liste_choix_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

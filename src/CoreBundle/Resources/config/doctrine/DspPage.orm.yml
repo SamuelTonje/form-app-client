@@ -1,0 +1,47 @@
+CoreBundle\Entity\DspPage:
+    type: entity
+    table: dsp__page
+    repositoryClass: CoreBundle\Repository\DspPageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: integer
+            unique: true
+        nom:
+            type: string
+            length: '50'
+        pageLabel:
+            type: string
+            length: 255
+            column: page_label
+        tpPage:
+            type: boolean
+            column: page_tp
+        nombreBloc:
+            type: integer
+            column: nombre_bloc
+        dateCreation:
+            type: datetime
+            column: date_creation
+        dateSuppression:
+            type: datetime
+            column: date_suppression
+    manyToOne:
+        dsp:
+            targetEntity: Dsp
+            inversedBy: dspPages
+            cascade: ["persist"]
+            joinColumn:
+                name: dsp_id
+                referencedColumnName: id
+    oneToMany:
+        dspBlocs:
+            targetEntity: DspBloc
+            mappedBy: dspPage
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

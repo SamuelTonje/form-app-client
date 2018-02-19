@@ -1,0 +1,40 @@
+CoreBundle\Entity\VariableListeChoix:
+    type: entity
+    table: variable__liste_choix
+    repositoryClass: CoreBundle\Repository\VariableListeChoixRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        numeroItem:
+            type: integer
+            column: numero_item
+        labelItem:
+            type: string
+            length: 255
+            column: label_item
+        codeItem:
+            type: string
+            length: '50'
+            column: code_item
+        defaut:
+            type: boolean
+        tpListe:
+            type: string
+            length: '50'
+            column: tp_liste
+        description:
+            type: string
+            length: 255
+    oneToMany:
+        dspBlocs:
+            targetEntity: DspBloc
+            mappedBy: variableListeChoix
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

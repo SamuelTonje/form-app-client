@@ -1,0 +1,31 @@
+CoreBundle\Entity\VariableNom:
+    type: entity
+    table: variable__nom
+    repositoryClass: CoreBundle\Repository\VariableNomRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: '50'
+        numero:
+            type: integer
+        libelle:
+            type: string
+            length: '100'
+        dateCreation:
+            type: datetime
+            column: date_creation
+        dateModification:
+            type: datetime
+            column: date_modification
+    oneToMany:
+        dspBlocs:
+            targetEntity: DspBloc
+            mappedBy: variableNom
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

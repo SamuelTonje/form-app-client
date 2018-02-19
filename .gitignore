@@ -7,6 +7,7 @@
 /app/cache/*
 /app/config/parameters.yml
 /app/config/parameters_env.yml
+/app/config/parameters_env.yml.dist
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep

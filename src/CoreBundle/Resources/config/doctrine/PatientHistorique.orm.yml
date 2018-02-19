@@ -1,0 +1,25 @@
+CoreBundle\Entity\PatientHistorique:
+    type: entity
+    table: patient__historique
+    repositoryClass: CoreBundle\Repository\PatientHistoriqueRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        nip:
+            type: integer
+        nipro:
+            type: integer
+        dateModification:
+            type: datetime
+            column: date_modification
+        datePro:
+            type: datetime
+            column: date_pro
+    lifecycleCallbacks: {  }

@@ -1,0 +1,45 @@
+CoreBundle\Entity\Dsp:
+    type: entity
+    table: dsp__dsp
+    repositoryClass: CoreBundle\Repository\DspRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        numero:
+            type: integer
+            unique: true
+        nom:
+            type: string
+            length: '50'
+        code:
+            type: string
+            length: '10'
+            unique: true
+        imagerie:
+            type: boolean
+        audio:
+            type: boolean
+        description:
+            type: string
+            length: '100'
+        codeService:
+            type: string
+            length: '5'
+            column: code_service
+        dateCreation:
+            type: datetime
+            column: date_creation
+        dateSuppression:
+            type: datetime
+            nullable: true
+            column: date_suppression
+    oneToMany:
+        dspPages:
+            targetEntity: DspPage
+            mappedBy: dsp
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+CoreBundle\Entity\VariableType:
+    type: entity
+    table: variable__type
+    repositoryClass: CoreBundle\Repository\VariableTypeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: '10'
+        libelle:
+            type: string
+            length: '50'
+    oneToMany:
+        dspBlocs:
+            targetEntity: DspBloc
+            mappedBy: variableType
+            cascade: ["persist"]
+    lifecycleCallbacks: {  }
